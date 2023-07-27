@@ -11,18 +11,19 @@ export const AuthContextProvider = (props) => {
 
   useEffect(() => {
     const storedUserLoggedInInformation = localStorage.getItem('isLoggedIn');
+
     if (storedUserLoggedInInformation === '1') {
       setIsLoggedIn(true);
     }
   }, []);
 
-  const loginHandler = () => {
-    localStorage.setItem('isLoggedIn', '1');
+  const logoutHandler = () => {
+    localStorage.removeItem('isLoggedIn');
     setIsLoggedIn(false);
   };
 
-  const logoutHandler = () => {
-    localStorage.removeItem('isLoggedIn');
+  const loginHandler = () => {
+    localStorage.setItem('isLoggedIn', '1');
     setIsLoggedIn(true);
   };
 
